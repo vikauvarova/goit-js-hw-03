@@ -1,12 +1,19 @@
 "use strict";
 
-function getElementWidth(content, padding, border) {
-  const width =content +
-    2 * padding +
-    2 * border;
-  return width;
+function filterArray(numbers, value) {
+  const newArray = [];
+  for (const number of numbers) {
+    if (number > value) {
+      newArray.push(number);
+
+    }
+  }
+  return newArray;
 }
 
-console.log(getElementWidth(50, 8, 4)); // 74
-console.log(getElementWidth(60, 12, 8.5)); // 101
-console.log(getElementWidth(200, 0, 0)); // 200
+
+console.log(filterArray([1, 2, 3, 4, 5], 3)); // [4, 5]
+console.log(filterArray([1, 2, 3, 4, 5], 4)); // [5]
+console.log(filterArray([1, 2, 3, 4, 5], 5)); // []
+console.log(filterArray([12, 24, 8, 41, 76], 38)); // [41, 76]
+console.log(filterArray([12, 24, 8, 41, 76], 20)); // [24, 41, 76]
